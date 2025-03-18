@@ -1,0 +1,5 @@
+What is the space complexity?
+
+ Auxilary space(The space taken to solve the problem)+input space(The space to store the input space)
+
+ 1s=10^8 oparations

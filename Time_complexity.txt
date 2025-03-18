@@ -1,0 +1,13 @@
+What is Time complexity?
+
+ The rate at which the time increase with the input size rather
+
+  Time complexity!=time taken(As the processor of the each system varies)
+   
+Big O Notation-Denotes every codes time complexity and space complexity
+
+Important scenario to be noted while making best solution:
+
+  1)Always consider the worst case scenario
+  2)Avoid Constants
+  3)Avoid the lower values
