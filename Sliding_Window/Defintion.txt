@@ -1,0 +1,14 @@
+What is Slding Window?
+
+ The sliding window technique is an optimized approach used in array and string problems to reduce time complexity, especially when dealing with subarrays or substrings.
+
+ Types:
+
+    1)Fixed size
+    2)Variable size
+
+ Time and Space complexity
+
+    1)Time-O(N),Space-O(1)
+    2)Time-O(N),Space-O(1)
+    
