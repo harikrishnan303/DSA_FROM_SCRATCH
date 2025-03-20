@@ -12,3 +12,5 @@ What is Slding Window?
     1)Time-O(N),Space-O(1)
     2)Time-O(N),Space-O(1)
     
+
+    Window Size Formulae-ending-starting+1;
