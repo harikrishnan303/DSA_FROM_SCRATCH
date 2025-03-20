@@ -1,0 +1,43 @@
+You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+
+Return the length of the longest substring containing the same letter you can get after performing the above operations.
+
+ 
+
+Example 1:
+
+Input: s = "ABAB", k = 2
+Output: 4
+Explanation: Replace the two 'A's with two 'B's or vice versa.
+
+Time Complexity:O(N)
+Space Complexity:O(26)=O(1)
+
+Solution:
+
+  class Solution {
+    public int characterReplacement(String s, int k) 
+    {
+        int going=0;//to calaculate subtract the number at back
+        int max_freq=0;//keeps track on tha max-freq of the window
+        int max_length=0;//maximum length
+        HashMap<Character,Integer>hash=new HashMap<>();
+        for(int i=0;i<s.length();i++)
+        {
+            char c=s.charAt(i);
+            hash.put(c,hash.getOrDefault(c,0)+1);
+            max_freq=Math.max(max_freq,hash.get(c));
+
+            while((i-going+1)-max_freq>k)//window size minus the max-freq = the remaining is the value we want to change
+            {
+                char m=s.charAt(going);
+                hash.put(m,hash.get(m)-1);//takes of the value that does not follow
+                going++;
+            }
+            max_length=Math.max(max_length,i-going+1);
+        }
+
+        return max_length;
+        
+    }
+}
