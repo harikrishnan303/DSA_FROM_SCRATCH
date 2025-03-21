@@ -13,6 +13,18 @@ Explanation: Replace the two 'A's with two 'B's or vice versa.
 Time Complexity:O(N)
 Space Complexity:O(26)=O(1)
 
+INTUTION:
+Works with the max_length,max_freq condition.step by step
+1) adding the element to the hashmap regularly and find the max_length.
+2)using condition window length subtracts maxfrequency is equal to the elements we want to change
+3)using the step 2 formulae checking wheteher formuale greater than the k value.if remove the elements from the starting of the window and increment the satring value of the window.
+4)max_length is caluculating using the window size.(The commom windoe size d=formuale is ending-starting+1)
+
+Important terms to consider in the problem:
+max_freq;
+windowsize-max_freq>k;
+max_length;
+
 Solution:
 
   class Solution {

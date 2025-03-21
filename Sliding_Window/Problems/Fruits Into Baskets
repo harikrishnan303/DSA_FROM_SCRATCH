@@ -30,6 +30,9 @@ If we had started at the first tree, we would only pick from trees [1,2].
  Time complexity:O(N)
  Space Complexity:O(1) //Hahsmap stores atmost two characters
 
+INTUTION:
+     Works with help of the sliding window and hashmap.Basic logic is if the number of items exceed two.remove that from the window by using the while loop and the incrementing the starting point.
+
  This problem is very similar to the longest substring with  disticnt characters
 
  class Solution {

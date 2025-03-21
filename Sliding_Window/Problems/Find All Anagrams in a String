@@ -1,0 +1,75 @@
+question:
+Medium
+Topics
+Companies
+Given two strings s and p, return an array of all the start indices of ps anagrams in s. You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: s = "cbaebabacd", p = "abc"
+Output: [0,6]
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+Example 2:
+
+Input: s = "abab", p = "ab"
+Output: [0,1,2]
+Explanation:
+The substring with start index = 0 is "ab", which is an anagram of "ab".
+The substring with start index = 1 is "ba", which is an anagram of "ab".
+The substring with start index = 2 is "ab", which is an anagram of "ab".
+
+Time complexity:O(N1)+O(N2)
+Space Complexity:O(N2)
+
+Answer:
+
+
+//this problem is very simialr to that of the problem .Permutaiton of a string such that by in this chase we are including starting index of the substring.a\extar added feature is im inclusein array list and addding on the index of the substring
+class Solution {
+    public List<Integer> findAnagrams(String s2, String s1) 
+    {
+       
+       int n1=s1.length();
+       int n2=s2.length();
+      ArrayList<Integer>l=new ArrayList<>();
+       HashMap<Character,Integer>perm=new HashMap<>(); //to the check for the permutations of the other string
+       HashMap<Character,Integer>exist=new HashMap<>(); //to note down the corresponding windows values concurrently
+      int i=0;
+       for(i=0;i<n1;i++)
+       {
+        char c=s1.charAt(i);
+          perm.put(c,perm.getOrDefault(c,0)+1);//calaculating the frequency of the respective characters
+       }
+       int going=0;
+       i=0;
+       while(i<s2.length())
+       {
+        char c=s2.charAt(i);
+          if(!perm.containsKey(c))//check for the element present in the other string while traversing if not found change the starting and the ending to the next itration
+          {
+            i=i+1;
+            going=i;
+            exist.clear();
+            continue;//continue used to move to next iteration without working on the remaining part of the loop
+          }
+          exist.put(c,exist.getOrDefault(c,0)+1);//adds the corresponding element to the in map if exists;
+          while(exist.get(c)>perm.get(c))//checks if the characetr limit is exceeded the perms character limit
+          {
+            char k=s2.charAt(going);
+            exist.put(k,exist.get(k)-1);//lower downing the loop as the chacater reats
+            going++;
+          }
+         int size=i-going+1;//represents the size of the window
+          if(size==s1.length())
+          l.add(going);
+          i++;
+
+       }
+       return l;
+ 
+    }
+}
