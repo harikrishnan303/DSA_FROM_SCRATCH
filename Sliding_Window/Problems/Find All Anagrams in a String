@@ -25,6 +25,12 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 Time complexity:O(N1)+O(N2)
 Space Complexity:O(N2)
 
+Intution:
+
+create two hashmap.One map includes the all the character of the permutuation string..use i,going.
+i is used to traverse through the second string.Going is used to remove the string from the starting.
+Next remove down the charcter if second hashmap exceeds the string 1.
+We know that the size of sliding window is ending-starting+1;If the size is equal to the first string add to the arraylist.
 Answer:
 
 
