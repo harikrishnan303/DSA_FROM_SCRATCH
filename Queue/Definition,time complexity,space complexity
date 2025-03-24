@@ -1,0 +1,10 @@
+Defintion:
+
+   Queue is linear data structure.Follows FIFO(First in first out).
+
+| **Operation**         | **Array-Based Queue**         | **Linked List-Based Queue** |
+|----------------------|----------------------------|----------------------------|
+| **Enqueue (add)**    | O(1) (if space is available) | O(1) |
+| **Dequeue (remove)** | O(1)                        | O(1) |
+| **Peek (front element)** | O(1)                   | O(1) |
+| **Check if Empty**   | O(1)                        | O(1) |
