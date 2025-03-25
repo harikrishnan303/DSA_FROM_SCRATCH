@@ -1,0 +1,39 @@
+public class queue
+{
+    int q[]=new int[8];
+    int front=0;
+    int rear=0;
+    int size=0;
+
+    public static void push(int data)
+    {
+        if(size>=8)
+        {
+            System.out.print("The size of the quque is full");
+            return;
+
+        }
+        q[rear]=data;
+        rear=(rear+1)%8;//modulo used for circular.As it reaches aboce 8 the modulo works and start filling from index zero.
+        size++;
+
+    }
+    public static  void pop()
+    {
+        if(size==0)
+        {
+            System.out.print("There is no element in the queue");
+            return;
+        }
+        int data=arr[front];
+        front=(front+1)%8;
+        size--;
+        return data;
+
+
+    }
+    public int size()
+    {
+        return size;
+    }
+}

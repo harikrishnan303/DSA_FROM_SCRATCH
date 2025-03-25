@@ -1,0 +1,31 @@
+public class stack
+{
+    int arr[]=new int[8];
+    int start=-1;
+
+    public static push(int data)
+    {
+        start=start+1;
+        arr[start]=data;
+    }
+    public static int pop()
+    {
+        if(start>=0)
+        {
+            start=start-1;
+            return arr[start+1];
+        }
+    }
+    public static int top()
+    {
+        if(start>=0)
+        {
+            return arr[start];
+        }
+    }
+    public static int size()
+    {
+        return start+1;
+    }
+
+}
