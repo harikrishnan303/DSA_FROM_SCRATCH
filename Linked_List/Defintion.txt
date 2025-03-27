@@ -1,0 +1,12 @@
+Linked list is linear data structure allows insertion and deletion operations
+effectivly.It works based on the concept called Nodes.Node contains two values
+they are data and address of the next node.Each node are interconnected to each other
+the first node of linkedlist is called as head,the last node of the linked list is
+called as the tail.
+
+Types of Linked list:
+
+ 1)Single Linked list
+ 2)Double Linked list
+ 3)Circular Linked list
+ 

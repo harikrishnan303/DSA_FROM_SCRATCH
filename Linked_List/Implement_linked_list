@@ -1,0 +1,82 @@
+Class Node{
+    int data;
+    Node next;
+    Node()
+    {
+        this.data=data;
+        this.next=next;
+    }
+}
+class LinkedList
+{
+    Node head;
+    Node tail;
+    LinkedList()
+    {
+        this.head=null;
+    }
+    void InsertAtBeginning(int data)//insert at the beginning of the linkedlist
+    {
+        Node newnode=New Node(data);
+        newnode.next=head;
+        head=newnode;
+
+    }
+    void InsertAtend(int data)//insert at the end of the linkedlist
+    {
+        Node newNode=new Node(data);
+        if(head==null)
+        {
+            head=tail=newNode;
+            return;
+        }
+        while(head.next!=null)
+        {
+            head=head.next;
+        }
+        tail.next=newnode;
+        tail=newnode;
+
+    }
+    void DeleteLastNode()//delete the lastnode
+    {
+        if(head==null)
+        {
+            System.out.print("The list is Empty!");
+            return;
+        }
+        if(head==tail)
+        {
+            head=tail=null;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=tail)
+        {
+           temp=temp.next;
+        }
+        temp.next=null;
+        tail=temp;
+    } 
+    void deleteFirst() //delete element at the beginning
+    {
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        if (head == tail) { // Only one node
+            head = tail = null;
+            return;
+        }
+
+        head = head.next; // Move head to the next node
+    }
+    void display()//display elements of the linkedlist
+    {
+    while(head!=null)
+    {
+        System.out.print(head.data);
+        head=head.next;
+    }
+    }
+}
