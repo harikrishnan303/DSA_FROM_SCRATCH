@@ -28,7 +28,7 @@ class LinkedList
         if(head==null)
         {
             head=tail=newNode;
-            return;
+            return;/
         }
         while(head.next!=null)
         {
