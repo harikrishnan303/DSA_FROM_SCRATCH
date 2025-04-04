@@ -28,7 +28,7 @@ class LinkedList
         if(head==null)
         {
             head=tail=newNode;
-            return;/
+            return;
         }
         while(head.next!=null)
         {
@@ -70,6 +70,26 @@ class LinkedList
         }
 
         head = head.next; // Move head to the next node
+    }
+    void InsertAtPosition(int val,int pos)
+    {
+        Node newnode=new Node(val);
+        if(pos==0)
+        {
+            newnode.next=head;
+            head=newnode;
+            return;
+        }
+        else
+        {
+            Node curr=head;
+            while(--pos!=0)
+            {
+              curr=curr.next;
+              newnode.next=curr.next;
+              curr.next=newnode;
+            }
+        }
     }
     void display()//display elements of the linkedlist
     {
