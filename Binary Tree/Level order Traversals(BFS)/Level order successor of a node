@@ -1,0 +1,28 @@
+public TreeNode Successor(Tree Node,int key)
+{
+    if(root==null)
+    {
+        return null;
+
+    }
+    Queue<TreeNode>queue=new LinkedList<>();
+    queue.add(root);
+    while(!queue.isEmpty())
+    {
+        TreeNode current=queue.poll();
+        if(current.left!=null)
+        {
+            queue.add(current.left);
+        }
+        if(current.right!=null)
+        {
+            queue.add(current.right);
+        }
+        if(current.val==key)
+        {
+            break;
+        }
+
+    }
+    return queue.peek();
+}
