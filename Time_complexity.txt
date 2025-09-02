@@ -9,5 +9,6 @@ Big O Notation-Denotes every codes time complexity and space complexity
 Important scenario to be noted while making best solution:
 
   1)Always consider the worst case scenario
-  2)Avoid Constants
-  3)Avoid the lower values
+  2)Apply the larger value from n to infinate
+  3)Do not consider the actual value if they are linear 
+  4)Ignore the small vlues if there is dominant or higher value
