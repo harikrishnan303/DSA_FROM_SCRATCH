@@ -1,0 +1,23 @@
+{
+    int max=Integer.MIN_VALUE;
+    int second_max=Integer.MIN_VALUE;
+
+    for(int i=0;i<n;i++)
+    {
+        if(nums[i]>max)
+        {
+            second_max=max;
+            max=nums[i];
+        }
+        else if(nums[i]!=max&&nums[i]>second_max)
+        {
+            second_max=nums[i];
+        }
+    }
+}
+
+
+Note:
+
+    This is the optiised approach find the second largest number present in an array.
+    The approach used here is an greedy approach
