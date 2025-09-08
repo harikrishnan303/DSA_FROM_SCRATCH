@@ -1,0 +1,19 @@
+class Solution 
+{
+    public void moveZeroes(int[] nums) 
+    {
+        int starter=0;
+        for(int traverser=0;traverser<nums.length;traverser++)
+        {
+          if(nums[traverser]!=0)
+          {
+            int temp=nums[traverser];
+            nums[traverser]=nums[starter];
+            nums[starter]=temp;
+            starter++;
+          }
+        }
+        
+        
+    }
+}
