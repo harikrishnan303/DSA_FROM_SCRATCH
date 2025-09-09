@@ -1,0 +1,27 @@
+Use the min and profit variables
+
+min is used get track of the smallest value in the array till the traversal
+
+profit is used find the max profit till current .Profit=current-min
+
+
+class Solution {
+    public int maxProfit(int[] prices) 
+    {
+
+        int min=Integer.MAX_VALUE;
+        int profit=0;
+
+        for(int i=0;i<prices.length;i++)
+        {
+            min=Math.min(min,prices[i]);
+            profit=Math.max(profit,prices[i]-min);
+
+        }
+        return profit;
+        
+    }
+}
+
+Time Complexity:O(N)
+Space Complexity:O(1)
