@@ -1,0 +1,45 @@
+Use the concept called low,mid and high
+
+mid to high is the unsorted array
+
+0-low-1 is 0
+low-mid-1 is 1
+high+1 to n is 2
+
+class Solution {
+    public void sortColors(int[] nums) 
+    {
+        int low=0;
+        int mid=0;
+        int high=nums.length-1;
+
+        while(mid<=high)
+        {
+            if(nums[mid]==0)
+            {
+                swap(nums,low,mid);
+                low++;
+                mid++;
+            }
+            else if(nums[mid]==1)
+            {
+                mid++;
+            }
+            else
+            {
+                swap(nums,high,mid);
+                high--;
+            }
+        }
+        
+    }
+     void swap(int arr[],int i,int j)
+     {
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+     }
+}
+
+Time-Complexity:O(N)
+Space-Complexity:O(1)
