@@ -1,0 +1,65 @@
+Next permutaion is where the possible permutaion lexigraphically greter the current number.
+
+Steps to implement
+
+Step 1:
+Find the breakpoint-traverse from n-1 to 0
+  
+   If no breakpoint element means reverse the array
+
+Step 2:
+Traverse from the n-1 and find the element grater than the break point element and swap them
+
+Step 3:
+reverse the array from the break point
+
+class Solution {
+    public void nextPermutation(int[] nums) 
+    {
+        int break_in=-1;
+        int n=nums.length;
+        for(int i=n-1;i>0;i--)
+        {
+            if(nums[i]>nums[i-1])
+            {
+                break_in=i-1;
+                break;
+            }
+        }
+        if(break_in==-1)
+        {
+      reverseArray(nums,break_in+1,n-1);  
+      return;
+        }
+
+        int min=Integer.MAX_VALUE;
+        for(int i=n-1;i>=0;i--)
+        {
+           if(nums[i]>nums[break_in])
+           {
+            int temp=nums[i];
+            nums[i]=nums[break_in];
+            nums[break_in]=temp;
+            break;
+           }
+        }
+      reverseArray(nums, break_in+1, n-1);
+
+        
+    }
+    public void reverseArray(int[] arr,int left,int right) {
+    
+    while (left < right) {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        left++;
+        right--;
+    }
+}
+
+}
+
+
+Time Complexity:O(n)
+Space Complexity:O(1)

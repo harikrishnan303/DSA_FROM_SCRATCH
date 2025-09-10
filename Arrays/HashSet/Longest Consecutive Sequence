@@ -1,0 +1,48 @@
+Note:
+We have to find the maximum count of consecutive numbers present in the array.
+
+so we store the elements in the hashset
+
+if we go through a number we will increment that number see the increment present in the hashset if present we will increment count and increment the number check until false
+
+checking should be done for each consecutive pairs only once as it will give error in order to handle that we will use a condition called num-1 not present in the array
+
+and another condition we use that is we will check set elements only as the array contains duplicates
+
+for each duplicate if check it takes more time
+
+
+class Solution {
+    public int longestConsecutive(int[] nums) 
+    {
+        Set<Integer>hash=new HashSet<>();
+        int n=nums.length;
+        
+        int max=0;
+        for(int i=0;i<n;i++)
+        {
+            hash.add(nums[i]);
+
+        }    
+        for(int num:hash)
+        {
+            if(!hash.contains(num-1))
+            {
+            int key=num;
+            int count=1;
+            while(hash.contains(key+1))
+            {
+                count++;
+                key++;
+            }
+           max=Math.max(max,count);
+            }
+            
+        }  
+        return max;  
+    }
+}
+
+Time Complexity:O(N)
+Space Complexity:O(N)
+
