@@ -1,0 +1,61 @@
+This question is solved with the help of 4 pointer
+Rowstart,rowend,colstart,colend
+
+we have to move throught the four corenr of the matrix respectivly then we increse the rowstart and colstart and decrement the rowend and colend
+
+the condition we always check is that rowstart<=rowend and colstart<=colend
+this condition is used as if they exceed no element to traverse in the matrix
+
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) 
+    {
+        ArrayList<Integer>list=new ArrayList<>();
+        if(matrix.length==0)
+        {
+            return list;
+        }
+        int m=matrix.length;
+        int n=matrix[0].length;
+        int row_start=0;
+        int col_start=0;
+        int row_end=m-1;
+        int col_end=n-1;
+
+        while(row_start<=row_end&&col_start<=col_end)
+        {
+            for(int i=col_start;i<=col_end;i++)
+            {
+                list.add(matrix[row_start][i]);
+            }
+            row_start++;
+            for(int i=row_start;i<=row_end;i++)
+            {
+              list.add(matrix[i][col_end]);
+            }
+            col_end--;
+            if(row_start<=row_end)
+            {
+                for(int i=col_end;i>=col_start;i--)
+                {
+                    list.add(matrix[row_end][i]);
+                }
+                row_end--;
+            }
+            if(col_start<=col_end)
+            {
+                for(int i=row_end;i>=row_start;i--)
+                {
+                    list.add(matrix[i][col_start]);
+                }
+                col_start++;
+            }
+        }
+        return list;
+        
+    }
+}
+
+
+Time complexity:O(N^2)
+Space Complexity:O(1)

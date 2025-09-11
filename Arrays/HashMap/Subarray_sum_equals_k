@@ -1,0 +1,29 @@
+we want calculate all the subarray so we have to store them in the hashmap
+
+so we the prefix_sum concept to add the prefix_sum for the each index
+then we traverse back and see that in the current index prefix_sum-k present we will increase the count
+
+
+
+class Solution {
+    public int subarraySum(int[] nums, int k) 
+    {
+        int prefix_sum=0;
+        int n=nums.length;
+        HashMap<Integer,Integer>hash=new HashMap<>();
+        hash.put(0,1);
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+            prefix_sum+=nums[i];
+            if(hash.containsKey(prefix_sum-k))
+            count+=hash.get(prefix_sum-k);
+            hash.put(prefix_sum,hash.getOrDefault(prefix_sum,0)+1);
+        }
+        return count;
+        
+    }
+}
+
+Time Complexity:O(N)
+Space Complexity:O(N)
