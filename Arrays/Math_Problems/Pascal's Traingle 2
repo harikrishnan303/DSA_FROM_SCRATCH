@@ -1,0 +1,16 @@
+class Solution {
+    public List<Integer> getRow(int rowIndex) 
+    {
+      List<Integer>li=new ArrayList<>();
+      li.add(1);
+      long res=1;
+      int k=rowIndex+1;
+    for(int i=1;i<k;i++)
+    {
+        res=res*(k-i);
+        res=res/i;
+        li.add((int)res);
+    }  
+    return li;
+    }
+}

@@ -1,0 +1,48 @@
+Pascals triangle is the result of combinations.
+
+if input is n the no of rows of the pascals triangle is n
+in each row the no of  columns will be the rowth number
+
+each row's value can be found using combination that is ncr
+
+
+Rather than finding the combination there is an easie approach
+
+sum=1
+for(int i=1;i<row;i++)
+{
+sum=sum*row-i;
+sum=sum/i;
+} 
+
+class Solution {
+    public List<List<Integer>> generate(int numRows) 
+    {
+
+       List<List<Integer>>li=new ArrayList<>();
+       for(int i=1;i<=numRows;i++)
+       {
+        li.add(generate2(i));
+       }    
+       return li;
+    }
+    List<Integer>generate2(int rows)
+    {
+        List<Integer>li=new ArrayList<>();
+        li.add(1);
+        int res=1;
+        for(int i=1;i<rows;i++)
+        {
+            res=res*(rows-i);
+            res=res/i;
+            li.add(res);
+
+            
+        }
+        return li;
+    }
+   
+}
+
+Time complexity:O(N^2)
+Space Complexity:O(1)

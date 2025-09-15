@@ -1,0 +1,63 @@
+We have to use the extended version two pointer approach to solve the problem
+that is the three pointer approach.
+
+First sort the array as the output should be in the sorted order.
+we have use only the one time not the duplicates so use hashset.
+
+The approach is the i pointer is used to traverse through the entire array.
+
+next the j pointer and the k pointer they are used to j=i+1 and k=n-1
+
+we will traverse and works based on the condition called as j<k
+
+if same number repeated use the while loop to cut over it repaet if the sum reaches the 0 add the numbers to the hashset
+
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] arr) 
+    {
+    Set<List<Integer>> hash=new HashSet<>();
+    int n=arr.length;
+    Arrays.sort(arr);
+    for(int i=0;i<n;i++)
+    {
+        if(i!=0&&arr[i]==arr[i-1])
+        continue;
+        
+        int j=i+1;
+        int k=n-1;
+
+        while(j<k)
+        {
+            int sum=arr[i]+arr[j]+arr[k];
+
+            if(sum<0)
+            {
+                j++;
+            }
+            else if(sum>0)
+            {
+                k--;
+            }
+            else
+            {
+                hash.add(Arrays.asList(arr[i], arr[j], arr[k]));
+                j++;
+                k--;
+
+            while(j<k&&arr[j-1]==arr[j])
+            {
+                j++;
+            }
+           
+            }
+        }
+    }
+    return new ArrayList<>(hash);
+    }
+}
+
+Time Complexity:O(N^2)
+Space Complexity:O(N)
+
+
