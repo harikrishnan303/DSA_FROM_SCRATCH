@@ -1,0 +1,56 @@
+Just Simple maths 
+
+x and the y concept
+
+find the difference of sum of first natural
+then
+find the sum of square of first n natural numbers
+
+
+we will get two equations  x-y and x^2-y^2 equation
+
+x^2-y^2 is (x-y)*(x+y)
+
+so we find out the values for the x-y then divide with the (x-y)*(x+y)/(x-y)
+
+so we get the two quations x-y and x+y so we get the value of 2x then we get the value of x is the repating number and the y is the number missing
+
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) 
+    {
+        int rows=grid.length;
+        int columns=grid[0].length;
+
+        long total=rows*columns;
+
+        long sum=0;
+        long sum_square=0;
+
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<columns;j++)
+            {
+                sum+=(long)grid[i][j];
+                sum_square+=(long)grid[i][j]*grid[i][j];
+            }
+        }
+        long r_sum_square=(total)*(total+1)*(total*2+1)/6;
+        long r_sum=(total)*(total+1)/2;
+
+        long sum_square_diff=sum_square-r_sum_square;
+        long sum_diff=sum-r_sum;
+
+        long result_before=sum_square_diff/sum_diff;
+
+        int x=(int)(result_before+sum_diff)/2;
+
+        int y=(int)(x-sum_diff);
+
+        return new int[]{x,y};
+
+        
+    }
+}
+
+Time Complexity:O(N)
+Space Complexity:O(1)
