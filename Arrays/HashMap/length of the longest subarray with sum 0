@@ -1,0 +1,31 @@
+Simple as that of sum k approach here important point is noted that in the case of the including of the first index so.we just add (0,-1)
+key to the hashmap.we will do the sum and add to the array.we will include the sum and index such that if the element is present we will calculate the maximum size 
+else we will include the sum and index to array.
+
+
+
+class Solution {
+    int maxLength(int arr[])
+    {
+        int maxcount=0;
+        int n=arr.length;
+        HashMap<Integer,Integer>hash=new HashMap<>();
+        int sum=0;
+        hash.put(0,-1);
+        for(int i=0;i<n;i++)
+        {
+            sum+=arr[i];
+            if(hash.containsKey(sum))
+            {
+                maxcount=Math.max(maxcount,i-hash.get(sum));
+            }
+            else 
+            hash.put(sum,i);
+        }
+        return maxcount;
+    }
+}
+
+Time Complexity:O(N)
+Space Complexity:O(N)
+

@@ -1,6 +1,10 @@
 Insertion sort is also implemented using two loops.Outer loop iterate from the index 1 to n-1 index.
 the inner loop traverse back of the outer index's current index 
 
+Key Insight:
+       Each element is checked to left it such that if left is greter they are swapped
+       It is done until the 1 index as we do until the 0 index then the next index will be -1.
+
 
 
     for(int i=1;i<n-1;i++)
